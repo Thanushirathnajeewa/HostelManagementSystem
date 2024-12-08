@@ -7,14 +7,15 @@ def add_complaint(connection, comment, student_id):
         comment: The complaint comment.
         student_id: The ID of the student lodging the complaint.
     """
+    #add complaint
     query = f"""
     INSERT INTO complaint (Comment, StudentID)
     VALUES ('{comment}', {student_id});
     """
     cursor = connection.cursor()
     try:
-        cursor.execute(query)
-        connection.commit()
+        cursor.execute(query)#execute data from query(retrieve)
+        connection.commit()#add data to table
         print(f"Complaint added successfully: {comment}")
     except Exception as e:
         print(f"Error while adding complaint: {e}")
