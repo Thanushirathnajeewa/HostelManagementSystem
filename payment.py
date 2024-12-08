@@ -8,12 +8,12 @@ def collect_payment_details():
         A tuple containing payment details: (payment_id, student_id, invoice_refno, amount, payment_date, payment_method)
     """
     try:
-        # Collect payment details from admin
+        # Enter payment details by admin
         payment_id = int(input("Enter Payment ID: "))
         student_id = int(input("Enter Student ID: "))
         invoice_refno = input("Enter Invoice Reference Number: ")
 
-        # Ensure that the amount is a valid float and greater than zero
+        # Ensure that the amount is a valid float and greater than zero(To ensure correct data is enter)
         while True:
             try:
                 amount = float(input("Enter Amount: "))
@@ -64,7 +64,7 @@ def insert_payment(connection, payment_id, student_id, invoice_refno, amount, pa
     cursor = connection.cursor()
     
     try:
-        # Execute the query with the passed parameters
+        # Execute the query 
         cursor.execute(query, (payment_id, student_id, invoice_refno, amount, payment_date, payment_method))
         
         # Commit the changes to the database
@@ -72,7 +72,7 @@ def insert_payment(connection, payment_id, student_id, invoice_refno, amount, pa
         
         print("Payment added successfully.")
     except Exception as e:
-        # Handle exceptions (e.g., database errors)
+        # Handle errors like database errors)
         print(f"Error while adding payment: {e}")
     finally:
         # Ensure the cursor is closed after execution
