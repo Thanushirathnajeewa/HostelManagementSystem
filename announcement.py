@@ -38,4 +38,4 @@ def read_all_announcements(connection):
             for announcement in announcements:
                 print(f"ID: {announcement[0]}, Message: {announcement[1]}, Created At: {announcement[2]}, Student ID: {announcement[3]}")
     except Exception as e:
-        print(f"Error while fetching announcements: {e}")
+        print(f"Error while fetching announcements: {e}")#If error in the connection display null set
